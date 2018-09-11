@@ -11,9 +11,16 @@ exports.getContent = (keyword, cb) => {
 		qs: {
 			start: 0,
 			query: keyword
+		},
+		headers: {
+			'Authorization': config.AUTH_HEADER + config.AUTH_TOKEN;
 		}
 	}, (error, response, body) => {
-		console.log('Response Status Code: '+response.statusCode + ' .Message: '+response.statusMessage);
+		
+		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+		console.log(`STATUS: ${res.statusCode}`);
+		console.log(`MESSAGE: ${res.statusMessage}`);
+		console.log('Response Status Code: '+response.statusCode + '.Message: '+response.statusMessage);
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content)
@@ -28,3 +35,7 @@ exports.getContent = (keyword, cb) => {
 		}
 	})
 }
+
+exports.getToken() {
+    return config.AUTH_HEADER + config.AUTH_TOKEN;
+  }
