@@ -13,7 +13,7 @@ exports.getContent = (keyword, cb) => {
 			query: keyword
 		},
 		headers: {
-			Authorization: config.AUTH_HEADER + config.AUTH_TOKEN;
+			Authorization: config.AUTH_HEADER + config.AUTH_TOKEN
 		}
 	}, (error, response, body) => {
 		
@@ -35,7 +35,3 @@ exports.getContent = (keyword, cb) => {
 		}
 	})
 }
-
-exports.getToken() {
-    return config.AUTH_HEADER + config.AUTH_TOKEN;
-  }
