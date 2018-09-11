@@ -2,9 +2,9 @@ const request = require('request');
 const config = require('../config');
 
 exports.getContent = (keyword, cb) => {
-	console('keyword:'+keyword);
+	console.log('keyword:'+keyword);
 	let path = config.PROTOCOL + config.HOST + config.SEARCH_URI;
-	console('URI: '+path)
+	console.log('URI: '+path)
 	let response="";
 	request({
 		uri: path,
