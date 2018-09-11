@@ -2,7 +2,7 @@ const request = require('request');
 const config = require('../config');
 
 exports.getContent = (keyword, cb) => {
-	console.log('keyword:'+keyword);
+	//console.log('keyword:'+keyword);
 	let path = config.PROTOCOL + config.HOST + config.SEARCH_URI;
 	console.log('URI: '+path)
 	let response="";
@@ -13,7 +13,7 @@ exports.getContent = (keyword, cb) => {
 			query: keyword
 		},
 		headers: {
-			'Authorization': config.AUTH_HEADER + config.AUTH_TOKEN;
+			Authorization: config.AUTH_HEADER + config.AUTH_TOKEN;
 		}
 	}, (error, response, body) => {
 		
@@ -25,8 +25,8 @@ exports.getContent = (keyword, cb) => {
 			let content = JSON.parse(body);
 			if(content)
 			
-			response = content.hasOwnProperty('weather') ? `The current weather for ${geocity} is ${weather['main'].temp} degress with ${weather['weather'][0]['description']}` :
-															'No appropriate weather details found'
+			response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']}` :
+															'No appropriate FAQ found'
 
 			cb(response)
 		} else {
