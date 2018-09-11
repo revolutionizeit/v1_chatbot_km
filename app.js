@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const app = express();
-const weather = require('./src/weather');
+const km = require('./src/km');
 
 app.use(bodyparser.urlencoded({
 	extended: true
@@ -19,14 +19,14 @@ app.post('/webhook', (req, res) => {
 	console.log('Here is the post request from DialogFlow');
     console.log(data);
 
-	console.log('Got geo city parameter from DialogFlow '+data.queryResult.parameters['geo-city']);
-	let geocity = data.queryResult.parameters['geo-city'] ? data.queryResult.parameters['geo-city'] : 'London';
-	weather.getWeather(geocity, response => {
+	console.log('Got geocity parameter from DialogFlow '+data.queryResult.parameters['keyword']);
+	let keyword = data.queryResult.parameters['keyword'] ? data.queryResult.parameters['keyword'] : 'hsbc';
+	km.getContent(keyword, response => {
 
 		return res.json({
 			fulfillmentText: response
 			,fulfillmentMessages: [{"text": {"text": [response]}}]
-			,source:"OpenWeatherMap-webhook-response"
+			,source:"em-km-api-webhook-response"
 		})
 
 	});
