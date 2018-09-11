@@ -17,9 +17,9 @@ app.post('/webhook', (req, res) => {
 
 	//let action = data.result.action ? data.result.action : '';
 	console.log('Here is the post request from DialogFlow');
-    console.log(data);
+    //console.log(data);
 
-	console.log('Got geocity parameter from DialogFlow '+data.queryResult.parameters['question']);
+	console.log('Got question parameter from DialogFlow '+data.queryResult.parameters['question']);
 	let keyword = data.queryResult.parameters['question'] ? data.queryResult.parameters['question'] : 'hsbc';
 	km.getContent(keyword, response => {
 

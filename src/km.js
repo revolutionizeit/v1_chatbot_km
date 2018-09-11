@@ -2,14 +2,18 @@ const request = require('request');
 const config = require('../config');
 
 exports.getContent = (keyword, cb) => {
+	console('keyword:'+keyword);
+	let path = config.PROTOCOL + config.HOST + config.SEARCH_URI;
+	console('URI: '+path)
 	let response="";
 	request({
-		uri: config.PROTOCOL + config.HOST + config.SEARCH_URI,
+		uri: path,
 		qs: {
 			start: 0,
 			query: keyword
 		}
 	}, (error, response, body) => {
+		console.log('Response Status Code: '+response.statusCode + ' .Message: '+response.statusMessage);
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content)
