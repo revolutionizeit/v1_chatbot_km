@@ -17,9 +17,9 @@ exports.getContent = (keyword, cb) => {
 		}
 	}, (error, response, body) => {
 		
-		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-		console.log(`STATUS: ${res.statusCode}`);
-		console.log(`MESSAGE: ${res.statusMessage}`);
+		console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
+		console.log(`STATUS: ${response.statusCode}`);
+		console.log(`MESSAGE: ${response.statusMessage}`);
 		console.log('Response Status Code: '+response.statusCode + '.Message: '+response.statusMessage);
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
