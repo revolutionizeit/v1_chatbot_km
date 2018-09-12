@@ -3,11 +3,11 @@ const config = require('../config');
 
 exports.getContent = (keyword, cb) => {
 	//console.log('keyword:'+keyword);
-	let path = config.PROTOCOL + config.HOST + config.SEARCH_URI;
-	console.log('URI: '+path)
+	//let path = config.PROTOCOL + config.HOST + config.SEARCH_URI;
+	//console.log('URI: '+path)
 	let response="";
 	request({
-		uri: path,
+		uri: config.PROTOCOL + config.HOST + config.SEARCH_URI,
 		qs: {
 			start: 0,
 			query: keyword
@@ -18,8 +18,8 @@ exports.getContent = (keyword, cb) => {
 	}, (error, response, body) => {
 		
 		console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
-		console.log(`STATUS: ${response.statusCode}`);
-		console.log(`MESSAGE: ${response.statusMessage}`);
+		//console.log(`STATUS: ${response.statusCode}`);
+		//console.log(`MESSAGE: ${response.statusMessage}`);
 		console.log('Response Status Code: '+response.statusCode + '.Message: '+response.statusMessage);
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
