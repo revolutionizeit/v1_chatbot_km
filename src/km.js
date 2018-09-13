@@ -22,10 +22,9 @@ exports.getContent = (keyword, cb) => {
 				response.text = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.\n` :
 																'No appropriate FAQ found'
 				let results = content['hydra:member'];
-				//console.log(results);
 				
 				if(results!== null && results !== ''){
-					var cards=[];
+					var basicCards=[];
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
@@ -47,11 +46,11 @@ exports.getContent = (keyword, cb) => {
 							]
 							*/
 						  };
-						basicCard.push(card);
+						  basicCards.push(card);
 					});
 				}
 			}
-			response.card = basicCard;
+			response.cards = basicCards;
 			cb(response)
 		} else {
 			console.error(response.error);
