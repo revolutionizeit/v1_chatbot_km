@@ -34,7 +34,6 @@ exports.getContent = (keyword, cb) => {
 					});
 
 				}
-				*/
 			}
 
 			cb(response)
