@@ -21,7 +21,7 @@ exports.getContent = (keyword, cb) => {
 			if(content){				
 				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles` :
 																'No appropriate FAQ found'
-				let results = $content['hydra:member'];
+				let results = content['hydra:member'];
 				if(results){
 					results.array.forEach(element => {
 						let name = $element['hydra:member'][0]['vkm:name'];
