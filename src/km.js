@@ -22,10 +22,10 @@ exports.getContent = (keyword, cb) => {
 				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles` :
 																'No appropriate FAQ found'
 				let results = content['hydra:member'];
-				console.log(results);
-				/*
-				if(results){
-					results.array.forEach(element => {
+				//console.log(results);
+				
+				if(results!== null && results !== ''){
+					results.forEach(element => {
 						let name = $element['hydra:member'][0]['vkm:name'];
 						let description = $element['hydra:member'][0]['vkm:description'];
 						console.log('KM Name: '+name);
