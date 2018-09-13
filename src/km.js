@@ -28,6 +28,7 @@ exports.getContent = (keyword, cb) => {
 				
 				if(results!== null && results !== ''){
 					let listSelectItems = [];
+					let cardResp="";
 
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
@@ -35,7 +36,17 @@ exports.getContent = (keyword, cb) => {
 						//console.log('KM Name: '+name);
 						//console.log('KM Desc: '+description);
 
-						
+						cardResp= {
+							"card": {
+								"title": name,
+								"subtitle": description,
+								"imageUri": "https://upload.wikimedia.org/wikipedia/commons/2/23/Thermally_Agitated_Molecule.gif",
+								"buttons": [{
+									"text": "Temperature Wikipedia Page",
+									"postback": "https://en.wikipedia.org/wiki/Temperature"
+								}]
+							}
+						}
 						
 						/*
 						let item={
@@ -66,17 +77,6 @@ exports.getContent = (keyword, cb) => {
 					}*/
 
 					//card
-					let cardResp= {
-						"card": {
-							"title": name,
-							"subtitle": description,
-							"imageUri": "https://upload.wikimedia.org/wikipedia/commons/2/23/Thermally_Agitated_Molecule.gif",
-							"buttons": [{
-								"text": "Temperature Wikipedia Page",
-								"postback": "https://en.wikipedia.org/wiki/Temperature"
-							}]
-						}
-					}
 					response.card=cardResp;
 				}
 			}
