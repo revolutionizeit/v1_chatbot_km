@@ -4,6 +4,8 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const app = express();
 const km = require('./src/km');
+//const { WebhookClient } = require('dialogflow-fulfillment');
+//const agent = new WebhookClient({request: request, response: response});
 
 app.use(bodyparser.urlencoded({
 	extended: true
