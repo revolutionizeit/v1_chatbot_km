@@ -32,12 +32,15 @@ exports.getContent = (keyword, cb) => {
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
-						//console.log('KM Name: '+name);
-						//console.log('KM Desc: '+description);
+						console.log('KM Name: '+name);
+						console.log('KM Desc: '+description);
 						
 						let item={
 							"info": {
-								"key": name
+								"key": name,
+								"synonyms": [
+									keyword
+								]
 							},
 							"title": name,
 							"description": description							
@@ -48,7 +51,7 @@ exports.getContent = (keyword, cb) => {
 					});
 
 					let listSelect={
-						"title": textStr,
+						
 						"items": listSelectItems
 					  };
 					response.list = listSelect;
