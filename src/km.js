@@ -46,7 +46,7 @@ exports.getContent = (keyword, cb) => {
 								}]							
 						}
 						
-						/*
+						
 						let item={
 							"info": {
 								"key": name,
@@ -60,10 +60,10 @@ exports.getContent = (keyword, cb) => {
 
 						  if(item!==null && item !=='')
 							  listSelectItems.push(item);
-							  */
+							  
 					});
 
-					/*
+					
 					//list
 					if(listSelectItems!==null && listSelectItems !=='' && listSelectItems.length>0){
 						console.log("l:"+listSelectItems.length);
@@ -72,7 +72,7 @@ exports.getContent = (keyword, cb) => {
 							"items": listSelectItems
 						};
 						response.list = listSelect;
-					}*/
+					}
 
 					//card
 					response.card=cardResp;

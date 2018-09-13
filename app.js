@@ -28,7 +28,7 @@ app.post('/webhook', (req, res) => {
 			fulfillmentMessages: 	[
 										{
 											/*"text": response.text,*/
-											/*"listSelect": response.list*/
+											"listSelect": response.list,
 											"card": response.card
 										}
 									]
