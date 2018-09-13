@@ -27,7 +27,7 @@ app.post('/webhook', (req, res) => {
 			fulfillmentText: response.textOnly,
 			fulfillmentMessages: 	[
 										{
-											/*"text": response.text,*/
+											"text": {"text": ["Welcome to HSBC FAQs"]},
 											"listSelect": response.list
 											/*"card": response.card*/
 										}
