@@ -37,15 +37,13 @@ exports.getContent = (keyword, cb) => {
 						//console.log('KM Desc: '+description);
 
 						cardResp= {
-							"card": {
 								"title": name,
 								"subtitle": description,
 								"imageUri": "https://upload.wikimedia.org/wikipedia/commons/2/23/Thermally_Agitated_Molecule.gif",
 								"buttons": [{
 									"text": "Temperature Wikipedia Page",
 									"postback": "https://en.wikipedia.org/wiki/Temperature"
-								}]
-							}
+								}]							
 						}
 						
 						/*
