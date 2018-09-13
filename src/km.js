@@ -19,7 +19,7 @@ exports.getContent = (keyword, cb) => {
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content){				
-				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.\n` :
+				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.<br/>` :
 																'No appropriate FAQ found'
 				let results = content['hydra:member'];
 				//console.log(results);
@@ -30,7 +30,7 @@ exports.getContent = (keyword, cb) => {
 						let description = element['hydra:member'][0]['vkm:description'];
 						console.log('KM Name: '+name);
 						console.log('KM Desc: '+description);
-						response += name +'-'+ description + '.\n';
+						response += name +'-'+ description + '.\\n';
 					});
 				}
 			}
