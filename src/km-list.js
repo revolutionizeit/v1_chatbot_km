@@ -34,20 +34,7 @@ exports.getContent = (keyword, cb) => {
 						let description = element['hydra:member'][0]['vkm:description'];
 						//console.log('KM Name: '+name);
 						//console.log('KM Desc: '+description);
-
-						let cardResp= {
-							"card": {
-								"title": name,
-								"subtitle": description,
-								"imageUri": "https://upload.wikimedia.org/wikipedia/commons/2/23/Thermally_Agitated_Molecule.gif",
-								"buttons": [{
-									"text": "Temperature Wikipedia Page",
-									"postback": "https://en.wikipedia.org/wiki/Temperature"
-								}]
-							}
-						}
 						
-						/*
 						let item={
 							"info": {
 								"key": name,
@@ -60,12 +47,9 @@ exports.getContent = (keyword, cb) => {
 						  };
 
 						  if(item!==null && item !=='')
-							  listSelectItems.push(item);
-							  */
+						  	listSelectItems.push(item);
 					});
 
-					/*
-					//list
 					if(listSelectItems!==null && listSelectItems !=='' && listSelectItems.length>0){
 						console.log("l:"+listSelectItems.length);
 						let listSelect={
@@ -73,10 +57,7 @@ exports.getContent = (keyword, cb) => {
 							"items": listSelectItems
 						};
 						response.list = listSelect;
-					}*/
-
-					//card
-					response.card=cardResp;
+					}
 				}
 			}
 			
@@ -87,4 +68,3 @@ exports.getContent = (keyword, cb) => {
 		}
 	})
 }
-

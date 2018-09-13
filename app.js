@@ -28,7 +28,8 @@ app.post('/webhook', (req, res) => {
 			fulfillmentMessages: 	[
 										{
 											"text": response.text,
-											"listSelect": response.list
+											/*"listSelect": response.list*/
+											"card": response.card
 										}
 									]
 			,source:"em-km-api-webhook-response"
@@ -36,18 +37,6 @@ app.post('/webhook', (req, res) => {
 		console.log('r: %j',webhookResp);
 		return res.json(webhookResp);
 		
-/*
-		return res.json({
-			fulfillmentText: response.textOnly,
-			fulfillmentMessages: 	[
-										{
-											"text": response.text,
-											"listSelect": response.list
-										}
-									]
-			,source:"em-km-api-webhook-response"
-		})
-*/
 	});
 })
 
