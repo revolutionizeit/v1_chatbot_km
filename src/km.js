@@ -19,36 +19,41 @@ exports.getContent = (keyword, cb) => {
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content){				
-				response.text = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.\n` :
+				let textStr = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.\n` :
 																'No appropriate FAQ found'
+				
+				response.text= {"text": [textStr]};
 				let results = content['hydra:member'];
 				
 				if(results!== null && results !== ''){
-					var cards=[];
+					let listSelectItems = [];
+
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
-						console.log('KM Name: '+name);
-						console.log('KM Desc: '+description);
+						//console.log('KM Name: '+name);
+						//console.log('KM Desc: '+description);
 						
-						let card={
-							"title": name,
-							"subtitle": name,
-							"formattedText": description
-							/*,
-							"image": {
-							  object(Image)
+						let item={
+							"info": {
+								"key": name,
+								"synonyms": [
+									keyword
+								]
 							},
-							"buttons": [
-							  {
-								object(Button)
-							  }
-							]
-							*/
+							"title": name,
+							"formattedText": description							
 						  };
-						  cards.push(card);
+
+						  if(item!==null && item !=='')
+						  	listSelectItems.push(item);
 					});
-					response.basicCard = cards;
+
+					let listSelect={
+						"title": name,
+						"items": listSelectItems
+					  };
+					response.list = listSelect;
 				}
 			}
 			

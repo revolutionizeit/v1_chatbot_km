@@ -26,7 +26,7 @@ app.post('/webhook', (req, res) => {
 			fulfillmentText: response.text
 			,fulfillmentMessages: 	[
 										{"text": {"text": [response.text]}},
-										{"basicCard": response.basicCard}
+										{"listSelect": response.list}
 									]
 			,source:"em-km-api-webhook-response"
 		})
