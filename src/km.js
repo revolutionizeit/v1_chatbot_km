@@ -50,11 +50,14 @@ exports.getContent = (keyword, cb) => {
 						  	listSelectItems.push(item);
 					});
 
-					let listSelect={
-						
-						"items": listSelectItems
-					  };
-					response.list = listSelect;
+					if(listSelectItems!==null && listSelectItems !=='' && listSelectItems.length>0){
+						console.log("l:"+listSelectItems.length);
+						let listSelect={
+							"title": "ListSelectTitle",
+							"items": listSelectItems
+						};
+						response.list = listSelect;
+					}
 				}
 			}
 			
