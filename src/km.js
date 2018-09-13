@@ -50,7 +50,7 @@ exports.getContent = (keyword, cb) => {
 					});
 
 					let listSelect={
-						"title": name,
+						"title": textStr,
 						"items": listSelectItems
 					  };
 					response.list = listSelect;
