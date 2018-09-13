@@ -19,22 +19,39 @@ exports.getContent = (keyword, cb) => {
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content){				
-				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
+				response.text = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.\n` :
 																'No appropriate FAQ found'
 				let results = content['hydra:member'];
 				//console.log(results);
 				
 				if(results!== null && results !== ''){
+					var cards=[];
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
 						console.log('KM Name: '+name);
 						console.log('KM Desc: '+description);
-						response += name +'-'+ description + '.\\n';
+						
+						let card={
+							"title": name,
+							"subtitle": name,
+							"formattedText": description
+							/*,
+							"image": {
+							  object(Image)
+							},
+							"buttons": [
+							  {
+								object(Button)
+							  }
+							]
+							*/
+						  };
+						basicCard.push(card);
 					});
 				}
 			}
-			response = response.replace(/\\n/g, '\n');
+			response.card = basicCard;
 			cb(response)
 		} else {
 			console.error(response.error);
