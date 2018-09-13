@@ -34,6 +34,7 @@ exports.getContent = (keyword, cb) => {
 					});
 				}
 			}
+			response = response.replace(/\\n/g, '\n');
 			cb(response)
 		} else {
 			console.error(response.error);
