@@ -19,7 +19,7 @@ exports.getContent = (keyword, cb) => {
 		if(!error && response.statusCode === 200){
 			let content = JSON.parse(body);
 			if(content){				
-				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.<br/>` :
+				response = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
 																'No appropriate FAQ found'
 				let results = content['hydra:member'];
 				//console.log(results);
