@@ -37,10 +37,7 @@ exports.getContent = (keyword, cb) => {
 						
 						let item={
 							"info": {
-								"key": name,
-								"synonyms": [
-									keyword
-								]
+								"key": name
 							},
 							"title": name,
 							"description": description							
