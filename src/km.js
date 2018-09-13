@@ -43,7 +43,7 @@ exports.getContent = (keyword, cb) => {
 								]
 							},
 							"title": name,
-							"formattedText": description							
+							"description": description							
 						  };
 
 						  if(item!==null && item !=='')

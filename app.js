@@ -28,8 +28,7 @@ app.post('/webhook', (req, res) => {
 			fulfillmentText: response.textOnly,
 			fulfillmentMessages: 	[
 										{
-											"text": response.text,
-											"listSelect": response.list
+											"text": response.text
 										}
 									]
 			,source:"em-km-api-webhook-response"
