@@ -21,14 +21,16 @@ app.post('/webhook', (req, res) => {
 	console.log('Got question parameter from DialogFlow: '+data.queryResult.parameters['question']);
 	let keyword = data.queryResult.parameters['question'] ? data.queryResult.parameters['question'] : 'hsbc';
 	km.getContent(keyword, response => {
-		console.log('t: %j', response.text);
+		console.log('t: %j',response.text);
 		console.log('l: %j',response.list);
 
 		return res.json({
-			fulfillmentText: response.text
-			,fulfillmentMessages: 	[
-										{"text": response.text},
-										{"listSelect": response.list}
+			fulfillmentText: response.textOnly,
+			fulfillmentMessages: 	[
+										{
+											"text": response.text,
+											"listSelect": response.list
+										}
 									]
 			,source:"em-km-api-webhook-response"
 		})
