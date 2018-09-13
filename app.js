@@ -27,9 +27,9 @@ app.post('/webhook', (req, res) => {
 			fulfillmentText: response.textOnly,
 			fulfillmentMessages: 	[
 										{
-											"text": {"text": ["Welcome to HSBC FAQs"]},
-											"listSelect": response.list
-											/*"card": response.card*/
+											/*"text": {"text": ["Welcome to HSBC FAQs"]},
+											"listSelect": response.list*/
+											"card": response.card
 										}
 									]
 			,source:"em-km-api-webhook-response"
