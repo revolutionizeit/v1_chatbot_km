@@ -24,7 +24,7 @@ exports.getContent = (keyword, cb) => {
 				let results = content['hydra:member'];
 				
 				if(results!== null && results !== ''){
-					var basicCards=[];
+					var cards=[];
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
@@ -46,11 +46,12 @@ exports.getContent = (keyword, cb) => {
 							]
 							*/
 						  };
-						  basicCards.push(card);
+						  cards.push(card);
 					});
+					response.basicCard = cards;
 				}
 			}
-			response.cards = basicCards;
+			
 			cb(response)
 		} else {
 			console.error(response.error);
