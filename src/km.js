@@ -108,7 +108,7 @@ exports.getTags = (cb) => {
 				if(results!== null && results !== '' && results.length>0){
 					let suggestionLists = [];
 					results.forEach(element => {
-						let name = element[0]['vkm:name'];
+						let name = element['vkm:name'];
 						console.log('Tag Name: '+name);			
 						
 						let suggestion={
