@@ -106,7 +106,7 @@ exports.getTags = (cb) => {
 				let results = content['hydra:member'];
 				
 				if(results!== null && results !== '' && results.length>0){
-					let suggestions = [];
+					let suggestionLists = [];
 					let cardResp="";
 
 					results.forEach(element => {
@@ -118,15 +118,15 @@ exports.getTags = (cb) => {
 						  };
 
 						  if(suggestion!==null && suggestion !=='')
-						  	suggestions.push(item);
+						  suggestionLists.push(suggestion);
 							  
 					});
 					
 					//suggestions chip
-					if(suggestions!==null && suggestions !=='' && suggestions.length>0){
-						console.log("l:"+suggestions.length);
+					if(suggestionLists!==null && suggestionLists !=='' && suggestionLists.length>0){
+						console.log("l:"+suggestionLists.length);
 						let suggestionsJson={
-							"suggestions": suggestions
+							"suggestions": suggestionLists
 						};
 						response.suggestions = suggestionsJson;
 					}
