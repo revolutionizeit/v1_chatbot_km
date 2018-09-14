@@ -126,7 +126,7 @@ exports.getTags = (tag, cb) => {
 					let quickReplies = [];
 					results.forEach(element => {
 						let name = element['vkm:name'];
-						console.log('Tag Name: '+name);			
+						//console.log('Tag Name: '+name);			
 						  quickReplies.push(name);							  
 					});
 					
@@ -171,7 +171,7 @@ exports.searchByTopic = (topic, cb) => {
 	}else{
 		topicId = "topic_credit";
 	}
-	console.log("u:"+uriPath);
+	console.log("t:"+topicId);
 
 	request({
 		uri: config.PROTOCOL + config.HOST + config.SEARCH_URI,
