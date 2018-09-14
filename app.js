@@ -64,7 +64,7 @@ app.post('/webhook', (req, res) => {
 	}else if( action === 'searchByTopic'){
 		console.log('Action: ' +action+' Parameter: '+parameters['topic']);
 		let topic = data.queryResult.parameters['topic'] ? parameters['topic'] : 'Internet Banking';
-		km.getContent(topic, response => {
+		km.searchByTopic(topic, response => {
 			let webhookResp = {
 				fulfillmentText: topic,
 				fulfillmentMessages: 	[
