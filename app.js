@@ -46,7 +46,7 @@ app.post('/webhook', (req, res) => {
 	}else if ( action=== 'getTags'){
 		km.getTags(response => {
 			let webhookResp = {
-				fulfillmentText: response.textOnly,
+				fulfillmentText: "Suggestions",
 				fulfillmentMessages: 	[
 											{
 												"suggestions": response.suggestions
