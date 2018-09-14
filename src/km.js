@@ -191,10 +191,10 @@ exports.searchByTopic = (topic, cb) => {
 				
 				response.textOnly = textStr;
 				response.text= {"text": [textStr]};
+				console.log('TotalItems:'+textStr)
 				let results = content['hydra:member'];
 				
-				if(results!== null && results !== ''){
-					let listSelectItems = [];
+				if(results!== null && results !== '' && results.length>0){
 					let cardResp="";
 
 					results.forEach(element => {
