@@ -26,7 +26,7 @@ exports.getContent = (keyword, cb) => {
 				response.text= {"text": [textStr]};
 				let results = content['hydra:member'];
 				
-				if(results!== null && results !== ''){
+				if(results!== null && results !== '' && results.length>0){
 					let listSelectItems = [];
 					let cardResp="";
 
@@ -87,3 +87,56 @@ exports.getContent = (keyword, cb) => {
 	})
 }
 
+exports.getTags = (cb) => {
+	//let response=Content"";
+	request({
+		uri: config.PROTOCOL + config.HOST + config.SEARCH_URI,
+		qs: {
+			start: 0,
+			size: 100
+		},
+		headers: {
+			Authorization: config.AUTH_HEADER + config.AUTH_TOKEN
+		}
+	}, (error, response, body) => {
+		console.log('Status Code: '+response.statusCode + '.Message: '+response.statusMessage);
+		if(!error && response.statusCode === 200){
+			let content = JSON.parse(body);
+			if(content){				
+				let results = content['hydra:member'];
+				
+				if(results!== null && results !== '' && results.length>0){
+					let suggestions = [];
+					let cardResp="";
+
+					results.forEach(element => {
+						let name = element['hydra:member'][0]['vkm:name'];
+						console.log('Tag Name: '+name);			
+						
+						let suggestion={
+							"title": name						
+						  };
+
+						  if(suggestion!==null && suggestion !=='')
+						  	suggestions.push(item);
+							  
+					});
+					
+					//suggestions chip
+					if(suggestions!==null && suggestions !=='' && suggestions.length>0){
+						console.log("l:"+suggestions.length);
+						let suggestionsJson={
+							"suggestions": suggestions
+						};
+						response.suggestions = suggestionsJson;
+					}
+				}
+			}
+			
+			cb(response)
+		} else {
+			console.error(response.error);
+			cb('Something went wrong!');
+		}
+	})
+}
