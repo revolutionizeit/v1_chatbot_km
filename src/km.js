@@ -123,10 +123,7 @@ exports.getTags = (cb) => {
 					//suggestions chip
 					if(suggestionLists!==null && suggestionLists !=='' && suggestionLists.length>0){
 						console.log("l:"+suggestionLists.length);
-						let suggestionsJson={
-							"suggestions": suggestionLists
-						};
-						response.suggestions = suggestionsJson;
+						response.suggestions = suggestionLists;
 					}
 				}
 			}
