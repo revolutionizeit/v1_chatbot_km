@@ -115,9 +115,8 @@ exports.getTags = (cb) => {
 							"title": name						
 						  };
 
-						  if(suggestion!==null && suggestion !=='')
-						  suggestionLists.push(suggestion);
-						  break
+						  if(suggestion!==null && suggestion !=='' && suggestionLists.length==0)
+						  	suggestionLists.push(suggestion);
 							  
 					});
 					
