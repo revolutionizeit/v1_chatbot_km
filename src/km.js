@@ -44,8 +44,7 @@ exports.getContent = (keyword, cb) => {
 									"text": "More Details",
 									"postback": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
 								}]							
-						}
-						
+						}				
 						
 						let item={
 							"info": {
@@ -106,24 +105,21 @@ exports.getTags = (cb) => {
 				let results = content['hydra:member'];
 				
 				if(results!== null && results !== '' && results.length>0){
-					let suggestionLists = [];
+					let quickReplies = [];
 					results.forEach(element => {
 						let name = element['vkm:name'];
 						console.log('Tag Name: '+name);			
-						
-						let suggestion={
-							"title": name						
-						  };
-
-						  if(suggestion!==null && suggestion !=='' && suggestionLists.length==0)
-						  	suggestionLists.push(suggestion);
-							  
+						  quickReplies.push(name);							  
 					});
 					
-					//suggestions chip
-					if(suggestionLists!==null && suggestionLists !=='' && suggestionLists.length>0){
-						console.log("l:"+suggestionLists.length);
-						response.suggestions = suggestionLists;
+					//quickReplies
+					if(quickReplies!==null && quickReplies !=='' && quickReplies.length>0){
+						console.log("l:"+quickReplies.length);
+						let quickRepliesJson={
+							"title": "List of available tags",
+							"quickReplies": quickReplies
+						};
+						response.quickReplies = quickRepliesJson;
 					}
 				}
 			}
