@@ -38,7 +38,10 @@ app.post('/webhook', (req, res) => {
 											}
 										]
 				,source:"em-km-api-webhook-response"
-			};			
+			};
+			
+			console.log('r: %j',webhookResp);
+			return res.json(webhookResp);	
 		});
 	}else if ( action=== 'getTags'){
 		km.getTags(response => {
@@ -51,13 +54,15 @@ app.post('/webhook', (req, res) => {
 										]
 				,source:"em-km-tags-api-webhook-response"
 			};
+
+			console.log('r: %j',webhookResp);
+			return res.json(webhookResp);
 		});
 	}else{
 		console.error(`Unhandled action ${action}`);
 	}
 
-	console.log('r: %j',webhookResp);
-	return res.json(webhookResp);
+	
 })
 
 app.listen(process.env.PORT || 8000, () => {
