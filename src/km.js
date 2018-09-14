@@ -90,22 +90,23 @@ exports.getTags = (tag, cb) => {
 	let response="";
 	let uriPath="";
 
-	if(tag!== null || tag == ''){
-		uriPath = config.TAG_URI;
-	}else if (tag='Business Unit'){
-		uriPath = config.TAG_URI + config.TAG_KBASE_URI;
-	}else if (tag='Group'){
-		uriPath = config.TAG_URI + config.TAG_PRODUCT_URI;
-	}else if (tag='Content Type'){
-		uriPath = config.TAG_URI + config.TAG_REGION_URI;
-	}else if (tag='Browse Topic'){
-		uriPath = config.TAG_URI + config.TAG_TOPIC_URI;
+	if(tag== null || tag == ''){
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI;
+	}else if (tag=='Business Unit'|| tag=='business unit' ){
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI + config.TAG_KBASE_URI;
+	}else if (tag=='Group'){
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI + config.TAG_PRODUCT_URI;
+	}else if (tag=='Content Type'){
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI + config.TAG_REGION_URI;
+	}else if (tag=='Browse Topic'){
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI + config.TAG_TOPIC_URI;
 	}else{
-		uriPath = config.TAG_URI;
+		uriPath = config.PROTOCOL + config.HOST + config.TAG_URI;
 	}
+	console.log("u:"+uriPath);
 
 	request({
-		uri: config.PROTOCOL + config.HOST + uriPath,
+		uri: uriPath,
 		qs: {
 			start: 0,
 			size: 100
