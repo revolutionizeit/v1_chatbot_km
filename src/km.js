@@ -118,7 +118,6 @@ exports.getTags = (tag, cb) => {
 			let content = JSON.parse(body);
 			if(content){				
 				let results = content['hydra:member'];
-				console.log('results: %j',results);
 				
 				if(results!== null && results !== '' && results.length>0){
 					let quickReplies = [];
@@ -191,6 +190,7 @@ exports.searchByTopic = (topic, cb) => {
 				response.text= {"text": [textStr]};
 				console.log('TotalItems:'+textStr);
 				let results = content['hydra:member'];
+				console.log('results: %j',results);
 				
 				if(results!== null && results !== '' && results.length>0){
 					let cardResp="";
