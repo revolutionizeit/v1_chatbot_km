@@ -90,7 +90,7 @@ exports.getContent = (keyword, cb) => {
 exports.getTags = (cb) => {
 	//let response=Content"";
 	request({
-		uri: config.PROTOCOL + config.HOST + config.SEARCH_URI,
+		uri: config.PROTOCOL + config.HOST + config.TAG_URI,
 		qs: {
 			start: 0,
 			size: 100
