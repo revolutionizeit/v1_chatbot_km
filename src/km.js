@@ -88,7 +88,7 @@ exports.getContent = (keyword, cb) => {
 }
 
 exports.getTags = (cb) => {
-	//let response=Content"";
+	let response="";
 	request({
 		uri: config.PROTOCOL + config.HOST + config.TAG_URI,
 		qs: {
@@ -107,10 +107,8 @@ exports.getTags = (cb) => {
 				
 				if(results!== null && results !== '' && results.length>0){
 					let suggestionLists = [];
-					let cardResp="";
-
 					results.forEach(element => {
-						let name = element['hydra:member'][0]['vkm:name'];
+						let name = element[0]['vkm:name'];
 						console.log('Tag Name: '+name);			
 						
 						let suggestion={
