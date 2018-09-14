@@ -117,7 +117,7 @@ exports.getTags = (cb) => {
 
 						  if(suggestion!==null && suggestion !=='')
 						  suggestionLists.push(suggestion);
-						  break;
+						  break
 							  
 					});
 					
