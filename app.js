@@ -25,6 +25,7 @@ app.post('/webhook', (req, res) => {
 	if( action === 'getFAQ'){
 		console.log('Action: ' +action+' Parameter: '+parameters['question']);
 		let keyword = data.queryResult.parameters['question'] ? parameters['question'] : 'hsbc';
+		keyword= '"'+keyword+'"';
 		km.getContent(keyword, response => {
 			//console.log('t: %j',response.text);
 			//console.log('l: %j',response.list);
@@ -37,7 +38,7 @@ app.post('/webhook', (req, res) => {
 												"card": response.card
 											}
 										]
-				,source:"em-km-api-webhook-response"
+				,source:"em-km-api-search-keyword-webhook-response"
 			};
 			
 			console.log('r: %j',webhookResp);
@@ -54,11 +55,28 @@ app.post('/webhook', (req, res) => {
 												"quickReplies": response.quickReplies
 											}
 										]
-				,source:"em-km-tags-api-webhook-response"
+				,source:"em-km-api-tags-webhook-response"
 			};
 
 			console.log('r: %j',webhookResp);
 			return res.json(webhookResp);
+		});
+	}else if( action === 'searchByTopic'){
+		console.log('Action: ' +action+' Parameter: '+parameters['topic']);
+		let topic = data.queryResult.parameters['topic'] ? parameters['topic'] : 'Internet Banking';
+		km.getContent(topic, response => {
+			let webhookResp = {
+				fulfillmentText: topic,
+				fulfillmentMessages: 	[
+											{
+												"card": response.card
+											}
+										]
+			             	,source:"em-km-api-search-topic-webhook-response"
+			};
+			
+			console.log('r: %j',webhookResp);
+			return res.json(webhookResp);	
 		});
 	}else{
 		console.error(`Unhandled action ${action}`);
