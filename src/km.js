@@ -26,7 +26,7 @@ exports.getContent = (keyword, cb) => {
 				response.text= {"text": [textStr]};
 				let results = content['hydra:member'];
 				
-				if(results!== null && results !== ''){
+				if(results!== null && results !== '' && typeof results !== 'undefined'){
 					let listSelectItems = [];
 					let cardResp="";
 
@@ -150,23 +150,41 @@ exports.getTags = (tag, cb) => {
 exports.searchByTopic = (topic, cb) => {
 	let response="";
 	let topicId="";
+	let imageUri="";
+	let postbackUri="";
 
 	if (topic=='Internet Banking'){
 		topicId = "topic_internet";
+		imageUri= "https://finance.advids.co/wp-content/uploads//2017/09/digibank.gif";
+		postbackUri = "https://www.hsbc.co.uk/ways-to-bank/online-banking/";
 	}else if (topic=='Mobile Banking'){
 		topicId = "topic_mobile";
+		imageUri= "https://media.giphy.com/media/e5K46uPhHTSDu/giphy.gif";
+		postbackUri = "https://www.hsbc.co.uk/ways-to-bank/mobile/";
 	}else if (topic=='Deposit Accounts'){
 		topicId = "topic_deposit";
+		imageUri= "http://gifimage.net/wp-content/uploads/2018/05/save-animated-gif-6.gif";
+		postbackUri = "https://www.hsbc.co.uk/current-accounts/";
 	}else if (topic=='Debit Cards'){
 		topicId = "topic_debit";
+		imageUri= "http://www.dpmitsolutions.com/img/card.gif";
+		postbackUri = "https://www.hsbc.co.uk/help/card-support/";
 	}else if (topic=='Credit Cards'){
 		topicId = "topic_credit";
+		imageUri= "https://cdn.dribbble.com/users/43762/screenshots/1398115/ccu-superbowl---charge.gif";
+		postbackUri = "https://www.hsbc.co.uk/credit-cards/";
 	}else if (topic=='Select Credit'){
 		topicId = "topic_select";
+		imageUri= "hhttps://media.giphy.com/media/mOa5DYpmj4MvK/giphy.gif";
+		postbackUri = "https://www.us.hsbc.com/select-credit/";
 	}else if (topic=='Loans'){
 		topicId = "topic_loans";
+		imageUri= "https://www.thestatebank.com/wp-content/uploads/2016/03/SBALoans.gif";
+		postbackUri = "https://www.hsbc.co.uk/1/2/tools-and-guides/loans/things-to-check-before-you-apply-for-a-loan";
 	}else{
 		topicId = "topic_credit";
+		imageUri= "https://www.thestatebank.com/wp-content/uploads/2016/03/SBALoans.gif";
+		postbackUri = "https://www.hsbc.co.uk/ways-to-bank/online-banking/";
 	}
 	console.log("t:"+topicId);
 
@@ -192,7 +210,7 @@ exports.searchByTopic = (topic, cb) => {
 				let results = content['hydra:member'];
 				console.log('results: %j',results);
 				
-				if(results!== null && results !== '' && results.length>0){
+				if(results!== null && results !== '' && typeof results !== 'undefined'){
 					let cardResp="";
 
 					results.forEach(element => {
@@ -202,10 +220,10 @@ exports.searchByTopic = (topic, cb) => {
 						cardResp= {
 								"title": name,
 								"subtitle": description,
-								"imageUri": "https://www.thestatebank.com/wp-content/uploads/2016/03/SBALoans.gif",
+								"imageUri": imageUri,
 								"buttons": [{
 									"text": "More Details",
-									"postback": "https://www.hsbc.co.uk/ways-to-bank/mobile/"
+									"postback": postbackUri
 								}]							
 						}					  
 					});
