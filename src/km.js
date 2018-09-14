@@ -86,10 +86,26 @@ exports.getContent = (keyword, cb) => {
 	})
 }
 
-exports.getTags = (cb) => {
+exports.getTags = (tag, cb) => {
 	let response="";
+	let uriPath="";
+
+	if(tag!== null || tag == ''){
+		uriPath = config.TAG_URI;
+	}else if (tag='Business Unit'){
+		uriPath = config.TAG_URI + config.TAG_KBASE_URI;
+	}else if (tag='Group'){
+		uriPath = config.TAG_URI + config.TAG_PRODUCT_URI;
+	}else if (tag='Content Type'){
+		uriPath = config.TAG_URI + config.TAG_REGION_URI;
+	}else if (tag='Browse Topic'){
+		uriPath = config.TAG_URI + config.TAG_TOPIC_URI;
+	}else{
+		uriPath = config.TAG_URI;
+	}
+
 	request({
-		uri: config.PROTOCOL + config.HOST + config.TAG_URI,
+		uri: config.PROTOCOL + config.HOST + uriPath,
 		qs: {
 			start: 0,
 			size: 100

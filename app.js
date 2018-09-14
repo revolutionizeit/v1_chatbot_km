@@ -44,7 +44,9 @@ app.post('/webhook', (req, res) => {
 			return res.json(webhookResp);	
 		});
 	}else if ( action=== 'getTags'){
-		km.getTags(response => {
+		console.log('Action: ' +action+' Parameter: '+parameters['tag']);
+		let tag = data.queryResult.parameters['tag'] ? parameters['tag'] : 'product';
+		km.getTags(tag, response => {
 			let webhookResp = {
 				fulfillmentText: "QuickReplies",
 				fulfillmentMessages: 	[

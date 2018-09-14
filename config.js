@@ -6,5 +6,9 @@ module.exports = {
 	AUTH_TOKEN: '.eyJhdF9oYXNoIjoiblgtVHcwajhybjdET2RzclFMRWQ0QSIsInN1YiI6ImttbWFuYWdlciIsInRva2VuTmFtZSI6ImlkX3Rva2VuIiwiaXNzIjoiaHR0cHM6Ly9ncmVlbm9yZS52ZXJpbnQtdGVzdC5jb20vb3BlbmFtL29hdXRoMi9kZWZhdWx0IiwiZ2l2ZW5fbmFtZSI6ImFjY2VwdGFuY2UtdGVzdC1naXZlbi1uYW1lIiwibm9uY2UiOiIxZWQyN2ExZTc2MjUyNjYxMTUxYmRmYTNiOGRlOWEzZiIsImNfaGFzaCI6IlBXV0YtWTlZZjlMcThoNkFHQ1pKdnciLCJhdWQiOlsiYWNjZXB0YW5jZS10ZXN0Il0sIm9yZy5mb3JnZXJvY2sub3BlbmlkY29ubmVjdC5vcHMiOiI3ODA4MDIwMy02NWM2LTRmZjQtODUyZC1kOTE0MjM5ODE0ODQiLCJhenAiOiJhY2NlcHRhbmNlLXRlc3QiLCJhdXRoX3RpbWUiOjE1MTI0ODczMjcxODQsIm5hbWUiOiJzb21lIHBlcnNvbiIsInJlYWxtIjoiL2RlZmF1bHQiLCJleHAiOjE1MTI1NzM3MjcxODQsInRva2VuVHlwZSI6IkpXVFRva2VuIiwiaWF0IjoxNTEyNDg3MzI3MTg0LCJmYW1pbHlfbmFtZSI6ImFjY2VwdGFuY2UtdGVzdC1mYW1pbHktbmFtZSJ9.',
 	PROTOCOL: 'http://',
 	SEARCH_URI: '/km-search-service/default/search',
-	TAG_URI: '/km-tag-service/default/tag'
+	TAG_URI: '/km-tag-service/default/tag',
+	TAG_KBASE_URI: '/kbase',
+	TAG_PRODUCT_URI: '/product',
+	TAG_REGION_URI: '/region',
+	TAG_TOPIC_URI: '/topic'
 }
