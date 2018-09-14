@@ -46,10 +46,10 @@ app.post('/webhook', (req, res) => {
 	}else if ( action=== 'getTags'){
 		km.getTags(response => {
 			let webhookResp = {
-				fulfillmentText: "Suggestions",
+				fulfillmentText: "QuickReplies",
 				fulfillmentMessages: 	[
 											{
-												"suggestions": response.suggestions
+												"quickReplies": response.quickReplies
 											}
 										]
 				,source:"em-km-tags-api-webhook-response"
