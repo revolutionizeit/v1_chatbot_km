@@ -22,7 +22,7 @@ exports.getContent = (keyword, cb) => {
 				let textStr = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
 																'No appropriate FAQ found'
 				
-				response.textOnly = textStr;
+				response.textOnly = i neetextStr;
 				response.text= {"text": [textStr]};
 				let results = content['hydra:member'];
 				
@@ -224,7 +224,7 @@ exports.searchByTopic = (topic, cb) => {
 				let textStr = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
 																'No appropriate FAQ found'
 				
-				response.textOnly = textStr;
+				response.textOnly = '';
 				response.text= {"text": [textStr]};
 				console.log('TotalItems:'+textStr);
 				let results = content['hydra:member'];

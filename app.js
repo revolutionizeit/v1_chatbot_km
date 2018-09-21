@@ -67,7 +67,7 @@ app.post('/webhook', (req, res) => {
 		let topic = data.queryResult.parameters['topic'] ? parameters['topic'] : 'Internet Banking';
 		km.searchByTopic(topic, response => {
 			let webhookResp = {
-				fulfillmentText: topic,
+				fulfillmentText: '',
 				fulfillmentMessages: 	[
 											{
 												"card": response.card
