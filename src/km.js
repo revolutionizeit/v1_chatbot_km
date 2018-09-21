@@ -29,10 +29,13 @@ exports.getContent = (keyword, cb) => {
 				if(results!== null && results !== '' && typeof results !== 'undefined'){
 					let listSelectItems = [];
 					let cardResp="";
+					let bcardResp="";
 
 					results.forEach(element => {
 						let name = element['hydra:member'][0]['vkm:name'];
 						let description = element['hydra:member'][0]['vkm:description'];
+						
+						/*
 						cardResp= {
 								"title": name,
 								"subtitle": description,
@@ -41,7 +44,22 @@ exports.getContent = (keyword, cb) => {
 									"text": "More Details",
 									"postback": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
 								}]							
-						}				
+						}
+						*/
+
+						cardResp= {
+							"title": name,
+							"subtitle": description,
+							"formattedText": "FAQ",
+							"image":{
+								"url": "http://blog.buildabazaar.com/wp-content/uploads/2018/06/FAQ.gif",
+								"accessibilityText": "FAQ Anser"
+							},
+							"buttons": [{
+								"text": "More Details",
+								"postback": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
+							}]							
+					}				
 						/*
 						let item={
 							"info": {
