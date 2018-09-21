@@ -52,7 +52,7 @@ exports.getContent = (keyword, cb) => {
 							"subtitle": description,
 							"formattedText": "FAQ",
 							"image":{
-								"url": "http://blog.buildabazaar.com/wp-content/uploads/2018/06/FAQ.gif",
+								"imageUri": "http://blog.buildabazaar.com/wp-content/uploads/2018/06/FAQ.gif",
 								"accessibilityText": "FAQ Anser"
 							},
 							"buttons": [{
