@@ -58,8 +58,7 @@ exports.getContent = (keyword, cb) => {
 							"buttons": [{
 								"title": "More Details",
 								"openUrlAction": {
-									"url": "https://www.hsbc.co.uk/ways-to-bank/online-banking/",
-									"urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+									"uri": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
 								}
 							}]							
 					}				
