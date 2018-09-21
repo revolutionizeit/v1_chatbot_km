@@ -22,7 +22,7 @@ exports.getContent = (keyword, cb) => {
 				let textStr = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
 																'No appropriate FAQ found'
 				
-				response.textOnly = i neetextStr;
+				response.textOnly = textStr;
 				response.text= {"text": [textStr]};
 				let results = content['hydra:member'];
 				
@@ -57,7 +57,7 @@ exports.getContent = (keyword, cb) => {
 							},
 							"buttons": [{
 								"title": "More Details",
-								"openUriAction": {
+								"openUrAction": {
 									"uri": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
 								}
 							}]							
@@ -224,7 +224,7 @@ exports.searchByTopic = (topic, cb) => {
 				let textStr = content.hasOwnProperty('hydra:totalItems') ? `Found ${content['hydra:totalItems']} articles.` :
 																'No appropriate FAQ found'
 				
-				response.textOnly = '';
+				response.textOnly = textStr;
 				response.text= {"text": [textStr]};
 				console.log('TotalItems:'+textStr);
 				let results = content['hydra:member'];
