@@ -53,11 +53,14 @@ exports.getContent = (keyword, cb) => {
 							"formattedText": "FAQ",
 							"image":{
 								"imageUri": "http://blog.buildabazaar.com/wp-content/uploads/2018/06/FAQ.gif",
-								"accessibilityText": "FAQ Anser"
+								"accessibilityText": "FAQ Answer"
 							},
 							"buttons": [{
-								"text": "More Details",
-								"postback": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
+								"title": "More Details",
+								"openUrlAction": {
+									"url": "https://www.hsbc.co.uk/ways-to-bank/online-banking/",
+									"urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+								}
 							}]							
 					}				
 						/*
