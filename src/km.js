@@ -57,7 +57,7 @@ exports.getContent = (keyword, cb) => {
 							},
 							"buttons": [{
 								"title": "More Details",
-								"openUrlAction": {
+								"openUriAction": {
 									"uri": "https://www.hsbc.co.uk/ways-to-bank/online-banking/"
 								}
 							}]							
